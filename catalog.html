@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Katalog — MarketLite</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="MarketLite Home">
+          <span class="brand-badge">M</span>
+          <span>MarketLite</span>
+        </a>
+        <nav class="nav">
+          <a class="chip" data-nav="home" href="index.html">Home</a>
+          <a class="chip" data-nav="catalog" href="catalog.html">Katalog</a>
+          <a class="chip" data-nav="orders" href="orders.html">Pesanan</a>
+          <a class="chip" data-nav="seller" href="seller.html">Dashboard</a>
+          <a class="chip" href="cart.html" aria-label="Keranjang">
+            <span>Keranjang</span>
+            <span class="pill" id="cartCount">0</span>
+          </a>
+          <button class="chip" id="toggleRoleBtn" type="button">
+            <span class="dot warn"></span>
+            <span id="rolePill">Mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 18px 0 26px">
+      <div class="row" style="justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px">
+        <div class="stack" style="gap:6px">
+          <h1 style="margin:0; font-size:22px">Katalog Produk</h1>
+          <span class="muted" id="resultMeta">Memuat…</span>
+        </div>
+        <div class="row" style="gap:10px">
+          <a class="chip" href="index.html">← Kembali</a>
+          <button class="btn" id="resetBtn" type="button">Reset filter</button>
+        </div>
+      </div>
+
+      <section class="card pad" style="margin-top:14px">
+        <div class="controls">
+          <div class="field">
+            <span class="label">Cari</span>
+            <input class="input" id="q" placeholder="contoh: keyboard, serum" />
+          </div>
+          <div class="field">
+            <span class="label">Kategori</span>
+            <select class="select" id="cat"></select>
+          </div>
+          <div class="field">
+            <span class="label">Min (Rp)</span>
+            <input class="input" id="min" inputmode="numeric" placeholder="0" />
+          </div>
+          <div class="field">
+            <span class="label">Max (Rp)</span>
+            <input class="input" id="max" inputmode="numeric" placeholder="1000000" />
+          </div>
+          <div class="field">
+            <span class="label">Urutkan</span>
+            <select class="select" id="sort">
+              <option value="reco">Rekomendasi</option>
+              <option value="price_asc">Harga: rendah → tinggi</option>
+              <option value="price_desc">Harga: tinggi → rendah</option>
+              <option value="rating_desc">Rating tertinggi</option>
+              <option value="new_desc">Terbaru</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="label">Terapkan</span>
+            <button class="btn primary full" id="applyBtn" type="button">Tampilkan</button>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:14px">
+        <div class="grid products" id="grid" aria-live="polite"></div>
+        <div class="row" style="justify-content:space-between; margin-top:14px; flex-wrap:wrap">
+          <button class="btn" id="prevBtn" type="button">← Sebelumnya</button>
+          <span class="muted" id="pageMeta">Halaman 1</span>
+          <button class="btn" id="nextBtn" type="button">Berikutnya →</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <div class="toast-title">Info</div>
+      <div class="toast-msg">...</div>
+    </div>
+
+    <script type="module" src="assets/js/pages/catalog.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keranjang — MarketLite</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="MarketLite Home">
+          <span class="brand-badge">M</span>
+          <span>MarketLite</span>
+        </a>
+        <nav class="nav">
+          <a class="chip" data-nav="home" href="index.html">Home</a>
+          <a class="chip" data-nav="catalog" href="catalog.html">Katalog</a>
+          <a class="chip" data-nav="orders" href="orders.html">Pesanan</a>
+          <a class="chip" data-nav="seller" href="seller.html">Dashboard</a>
+          <a class="chip" href="cart.html" aria-label="Keranjang">
+            <span>Keranjang</span>
+            <span class="pill" id="cartCount">0</span>
+          </a>
+          <button class="chip" id="toggleRoleBtn" type="button">
+            <span class="dot warn"></span>
+            <span id="rolePill">Mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 18px 0 28px">
+      <div class="row" style="justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px">
+        <div class="stack" style="gap:6px">
+          <h1 style="margin:0; font-size:22px">Keranjang</h1>
+          <span class="muted" id="meta">Memuat…</span>
+        </div>
+        <div class="row" style="gap:10px">
+          <a class="chip" href="catalog.html">+ Tambah produk</a>
+          <button class="btn danger" id="clearBtn" type="button">Kosongkan</button>
+        </div>
+      </div>
+
+      <section class="two-col" style="margin-top:14px">
+        <div class="card pad">
+          <div id="items"></div>
+        </div>
+        <aside class="stack">
+          <div class="card pad">
+            <div class="row" style="justify-content:space-between">
+              <strong>Ringkasan</strong>
+              <span class="pill">Demo</span>
+            </div>
+            <div class="hr"></div>
+            <div class="stack" style="gap:10px">
+              <div class="row" style="justify-content:space-between"><span class="muted">Subtotal</span><strong id="sub">-</strong></div>
+              <div class="row" style="justify-content:space-between"><span class="muted">Ongkir</span><span id="ship">-</span></div>
+              <div class="row" style="justify-content:space-between"><span class="muted">Biaya layanan</span><span id="fee">-</span></div>
+              <div class="hr"></div>
+              <div class="row" style="justify-content:space-between"><span class="muted">Total</span><strong id="total" style="font-size:18px">-</strong></div>
+              <a class="btn primary full" id="checkoutBtn" href="checkout.html">Lanjut ke checkout</a>
+              <small class="muted">Catatan: ini simulasi. Total disimpan ke pesanan saat checkout.</small>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <div class="toast-title">Info</div>
+      <div class="toast-msg">...</div>
+    </div>
+
+    <script type="module" src="assets/js/pages/cart.js"></script>
+  </body>
+</html>
+

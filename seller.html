@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard Penjual — MarketLite</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="MarketLite Home">
+          <span class="brand-badge">M</span>
+          <span>MarketLite</span>
+        </a>
+        <nav class="nav">
+          <a class="chip" data-nav="home" href="index.html">Home</a>
+          <a class="chip" data-nav="catalog" href="catalog.html">Katalog</a>
+          <a class="chip" data-nav="orders" href="orders.html">Pesanan</a>
+          <a class="chip" data-nav="seller" href="seller.html">Dashboard</a>
+          <a class="chip" href="cart.html" aria-label="Keranjang">
+            <span>Keranjang</span>
+            <span class="pill" id="cartCount">0</span>
+          </a>
+          <button class="chip" id="toggleRoleBtn" type="button">
+            <span class="dot warn"></span>
+            <span id="rolePill">Mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 18px 0 28px">
+      <div class="row" style="justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px">
+        <div class="stack" style="gap:6px">
+          <h1 style="margin:0; font-size:22px">Dashboard Penjual</h1>
+          <span class="muted" id="meta">Memuat…</span>
+        </div>
+        <div class="row" style="gap:10px">
+          <a class="chip" href="orders.html">Lihat semua pesanan</a>
+          <a class="chip" href="catalog.html">Lihat katalog</a>
+        </div>
+      </div>
+
+      <section class="two-col" style="margin-top:14px">
+        <div class="stack">
+          <div class="card pad">
+            <div class="row" style="justify-content:space-between; flex-wrap:wrap; gap:10px">
+              <strong>Produk saya</strong>
+              <span class="pill" id="sellerPill">-</span>
+            </div>
+            <div class="hr"></div>
+            <div id="productList"></div>
+          </div>
+
+          <div class="card pad">
+            <div class="row" style="justify-content:space-between">
+              <strong>Tambah produk (demo)</strong>
+              <span class="pill">LocalStorage</span>
+            </div>
+            <div class="hr"></div>
+            <form id="createForm" class="grid" style="grid-template-columns: 1fr; gap:10px">
+              <div class="field">
+                <span class="label">Nama produk</span>
+                <input class="input" id="cName" required placeholder="Nama produk" />
+              </div>
+              <div class="grid" style="grid-template-columns: 1fr 1fr; gap:10px">
+                <div class="field">
+                  <span class="label">Kategori</span>
+                  <select class="select" id="cCat"></select>
+                </div>
+                <div class="field">
+                  <span class="label">Harga (Rp)</span>
+                  <input class="input" id="cPrice" required inputmode="numeric" placeholder="150000" />
+                </div>
+                <div class="field">
+                  <span class="label">Stok</span>
+                  <input class="input" id="cStock" required inputmode="numeric" placeholder="10" />
+                </div>
+                <div class="field">
+                  <span class="label">Varian (pisahkan koma)</span>
+                  <input class="input" id="cVar" placeholder="Merah, Biru" />
+                </div>
+              </div>
+              <div class="field">
+                <span class="label">Deskripsi singkat</span>
+                <textarea class="textarea" id="cDesc" placeholder="Deskripsi produk..."></textarea>
+              </div>
+              <button class="btn primary full" type="submit">Simpan produk</button>
+            </form>
+          </div>
+        </div>
+
+        <aside class="stack">
+          <div class="card pad">
+            <div class="row" style="justify-content:space-between">
+              <strong>Pesanan masuk</strong>
+              <span class="pill" id="inboxPill">-</span>
+            </div>
+            <div class="hr"></div>
+            <div id="inbox"></div>
+            <div class="hr"></div>
+            <small class="muted">Tip: status pesanan bisa diubah dari halaman <a class="chip" href="orders.html">Pesanan</a> saat mode penjual.</small>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <div class="toast-title">Info</div>
+      <div class="toast-msg">...</div>
+    </div>
+
+    <script type="module" src="assets/js/pages/seller.js"></script>
+  </body>
+</html>
+
