@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MarketLite — Prototype Marketplace</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="MarketLite Home">
+          <span class="brand-badge">M</span>
+          <span>MarketLite</span>
+        </a>
+        <nav class="nav">
+          <a class="chip" data-nav="home" href="index.html">Home</a>
+          <a class="chip" data-nav="catalog" href="catalog.html">Katalog</a>
+          <a class="chip" data-nav="orders" href="orders.html">Pesanan</a>
+          <a class="chip" data-nav="seller" href="seller.html">Dashboard</a>
+          <a class="chip" href="cart.html" aria-label="Keranjang">
+            <span>Keranjang</span>
+            <span class="pill" id="cartCount">0</span>
+          </a>
+          <button class="chip" id="toggleRoleBtn" type="button">
+            <span class="dot warn"></span>
+            <span id="rolePill">Mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="card pad">
+            <p class="kbd">Prototipe • UI modern • LocalStorage</p>
+            <h1 class="title">Marketplace yang rapi, cepat, dan enak dipakai.</h1>
+            <p class="subtitle">
+              Ini prototipe terstruktur untuk demo flow belanja end-to-end. Kamu bisa cari produk, tambah ke keranjang,
+              checkout, lihat pesanan, dan coba dashboard penjual.
+            </p>
+            <div class="hr"></div>
+            <div class="controls">
+              <div class="field" style="grid-column:1/-1">
+                <span class="label">Cari cepat (tekan Enter)</span>
+                <input class="input" id="quickSearch" placeholder="contoh: earbuds, hoodie, lampu" />
+              </div>
+              <a class="btn primary" href="catalog.html">Jelajahi Katalog</a>
+              <a class="btn" href="cart.html">Lihat Keranjang</a>
+              <a class="btn" href="seller.html">Mode Penjual</a>
+            </div>
+          </div>
+
+          <div class="card pad soft">
+            <div class="stack">
+              <div>
+                <div class="row" style="justify-content:space-between">
+                  <strong>Ringkasan Demo</strong>
+                  <span class="pill good">Siap dipakai</span>
+                </div>
+                <p class="subtitle" style="margin-top:8px">
+                  Semua data tersimpan lokal (browser). Cocok untuk prototyping, presentasi, dan bahan diskusi fitur.
+                </p>
+              </div>
+
+              <div class="card pad" style="box-shadow:none">
+                <div class="row" style="justify-content:space-between; align-items:flex-start">
+                  <div class="stack" style="gap:6px">
+                    <strong>Flow Pembeli</strong>
+                    <span class="muted">Katalog → Detail → Keranjang → Checkout → Pesanan</span>
+                  </div>
+                  <span class="pill">Buyer</span>
+                </div>
+              </div>
+
+              <div class="card pad" style="box-shadow:none">
+                <div class="row" style="justify-content:space-between; align-items:flex-start">
+                  <div class="stack" style="gap:6px">
+                    <strong>Flow Penjual</strong>
+                    <span class="muted">Kelola produk → Lihat pesanan masuk (demo)</span>
+                  </div>
+                  <span class="pill">Seller</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" style="margin: 8px 0 16px">
+        <div class="row" style="justify-content:space-between; align-items:flex-end">
+          <div class="stack" style="gap:6px">
+            <strong>Produk unggulan</strong>
+            <span class="muted">Dipilih otomatis dari data demo</span>
+          </div>
+          <a class="chip" href="catalog.html">Lihat semua</a>
+        </div>
+
+        <div class="grid products" id="featuredGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="card pad">
+        <div class="row" style="justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap">
+          <div class="stack" style="gap:8px; max-width:720px">
+            <strong>Catatan struktur</strong>
+            <span class="muted">
+              UI dipisah per halaman, data & state ada di modul `assets/js/`. Kamu bisa kembangkan ke API beneran tanpa
+              mengubah banyak UI.
+            </span>
+          </div>
+          <a class="btn" href="orders.html">Cek Pesanan Demo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row" style="justify-content:space-between; flex-wrap:wrap; gap:10px">
+          <small>MarketLite Prototype • 2026</small>
+          <small>Tip: klik toggle mode untuk melihat UI pembeli vs penjual.</small>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <div class="toast-title">Info</div>
+      <div class="toast-msg">...</div>
+    </div>
+
+    <script type="module" src="assets/js/pages/home.js"></script>
+  </body>
+</html>
+
